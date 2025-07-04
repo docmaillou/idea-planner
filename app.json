@@ -19,13 +19,15 @@
       "supportsTablet": true,
       "infoPlist": {
         "ITSAppUsesNonExemptEncryption": false
-      }
+      },
+      "bundleIdentifier": "com.docmaillou.ideaplanner"
     },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "package": "com.docmaillou.ideaplanner"
     },
     "web": {
       "favicon": "./assets/favicon.png"
@@ -36,6 +38,12 @@
         "projectId": "f7637bed-9ef1-4470-b857-882381d5f01e"
       }
     },
-    "owner": "docmaillou"
+    "owner": "docmaillou",
+    "runtimeVersion": {
+      "policy": "appVersion"
+    },
+    "updates": {
+      "url": "https://u.expo.dev/f7637bed-9ef1-4470-b857-882381d5f01e"
+    }
   }
 }
