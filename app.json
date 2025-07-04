@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "Idea Planner",
-    "slug": "idea-planner",
+    "name": "MinDrop",
+    "slug": "mindrop",
     "version": "1.0.1",
     "orientation": "portrait",
     "sdkVersion": "53.0.0",
@@ -20,30 +20,30 @@
       "infoPlist": {
         "ITSAppUsesNonExemptEncryption": false
       },
-      "bundleIdentifier": "com.docmaillou.ideaplanner"
+      "bundleIdentifier": "com.docmaillou.mindrop"
     },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
       },
-      "package": "com.docmaillou.ideaplanner"
+      "package": "com.docmaillou.mindrop"
     },
     "web": {
       "favicon": "./assets/favicon.png"
     },
     "plugins": [],
-    "extra": {
-      "eas": {
-        "projectId": "f7637bed-9ef1-4470-b857-882381d5f01e"
-      }
-    },
     "owner": "docmaillou",
     "runtimeVersion": {
       "policy": "appVersion"
     },
     "updates": {
       "url": "https://u.expo.dev/f7637bed-9ef1-4470-b857-882381d5f01e"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "5bed018e-d719-41ed-8574-11d301a2d543"
+      }
     }
   }
 }

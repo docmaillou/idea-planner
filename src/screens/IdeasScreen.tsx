@@ -30,7 +30,7 @@ export const IdeasScreen: React.FC = () => {
     let filtered = [...ideas];
 
     // Filter by search query
-    if (filters.searchQuery.trim()) {
+    if (filters.searchQuery && filters.searchQuery.trim()) {
       const query = filters.searchQuery.toLowerCase().trim();
       filtered = filtered.filter((idea) => {
         const titleMatch = idea.title.toLowerCase().includes(query);

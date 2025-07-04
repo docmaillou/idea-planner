@@ -25,7 +25,11 @@ export const IdeaFilters: React.FC<IdeaFiltersProps> = ({
   const [searchAnimation] = useState(new Animated.Value(0));
 
   const handleSortChange = (sortBy: 'date' | 'rating', sortOrder: 'asc' | 'desc') => {
-    onFiltersChange({ sortBy, sortOrder });
+    onFiltersChange({ 
+      ...filters,
+      sortBy, 
+      sortOrder 
+    });
     setMenuVisible(false);
   };
 
@@ -70,7 +74,7 @@ export const IdeaFilters: React.FC<IdeaFiltersProps> = ({
 
   const hasActiveFilters = filters.sortBy !== 'date' || 
     filters.sortOrder !== 'desc' ||
-    filters.searchQuery.length > 0;
+    (filters.searchQuery && filters.searchQuery.length > 0);
 
   const searchWidth = searchAnimation.interpolate({
     inputRange: [0, 1],

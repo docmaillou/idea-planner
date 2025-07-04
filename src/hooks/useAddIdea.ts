@@ -21,11 +21,14 @@ export function useAddIdea(): UseAddIdeaResult {
       }
 
       // PATTERN: Add to local storage
-      await localStorageService.addIdea({
+      const ideaData = {
         title: title.trim(),
         description: description?.trim() || null,
         rating: rating,
-      });
+      };
+      
+      console.log('Adding idea with data:', ideaData);
+      await localStorageService.addIdea(ideaData);
 
       // CRITICAL: Return success status
       return true;
