@@ -1,296 +1,207 @@
-# Context Engineering Template
+# 💡 Idea Planner
 
-A comprehensive template for getting started with Context Engineering - the discipline of engineering context for AI coding assistants so they have the information necessary to get the job done end to end.
+Une application mobile moderne pour capturer, organiser et développer vos idées créatives avec un système de notation et de recherche avancé.
 
-> **Context Engineering is 10x better than prompt engineering and 100x better than vibe coding.**
+## ✨ Fonctionnalités
 
-## 🚀 Quick Start
+- **💭 Gestion d'idées** : Créez, modifiez et supprimez vos idées facilement
+- **⭐ Système de notation** : Notez vos idées de 0 à 10 pour prioriser
+- **🔍 Recherche intelligente** : Recherchez dans les titres et descriptions avec interface moderne
+- **📱 Interface native** : Design moderne avec Material Design 3
+- **🌐 Multilingue** : Support français et anglais
+- **💾 Stockage local** : Vos données restent sur votre appareil
+- **📤 Partage** : Partagez vos idées avec d'autres applications
+- **🎨 Interface moderne** : Animation fluide et design ergonomique
 
-```bash
-# 1. Clone this template
-git clone https://github.com/coleam00/Context-Engineering-Intro.git
-cd Context-Engineering-Intro
+## 🚀 Technologies
 
-# 2. Set up your project rules (optional - template provided)
-# Edit CLAUDE.md to add your project-specific guidelines
+- **React Native** avec Expo SDK 53
+- **TypeScript** pour la sécurité des types
+- **React Navigation** pour la navigation
+- **React Native Paper** pour les composants Material Design
+- **AsyncStorage** pour le stockage local
+- **i18next** pour l'internationalisation
 
-# 3. Add examples (highly recommended)
-# Place relevant code examples in the examples/ folder
+## 📱 Installation
 
-# 4. Create your initial feature request
-# Edit INITIAL.md with your feature requirements
+### Prérequis
 
-# 5. Generate a comprehensive PRP (Product Requirements Prompt)
-# In Claude Code, run:
-/generate-prp INITIAL.md
+- Node.js 18+
+- Expo CLI ou EAS CLI
+- Un émulateur Android/iOS ou un appareil physique
 
-# 6. Execute the PRP to implement your feature
-# In Claude Code, run:
-/execute-prp PRPs/your-feature-name.md
-```
-
-## 📚 Table of Contents
-
-- [What is Context Engineering?](#what-is-context-engineering)
-- [Template Structure](#template-structure)
-- [Step-by-Step Guide](#step-by-step-guide)
-- [Writing Effective INITIAL.md Files](#writing-effective-initialmd-files)
-- [The PRP Workflow](#the-prp-workflow)
-- [Using Examples Effectively](#using-examples-effectively)
-- [Best Practices](#best-practices)
-
-## What is Context Engineering?
-
-Context Engineering represents a paradigm shift from traditional prompt engineering:
-
-### Prompt Engineering vs Context Engineering
-
-**Prompt Engineering:**
-- Focuses on clever wording and specific phrasing
-- Limited to how you phrase a task
-- Like giving someone a sticky note
-
-**Context Engineering:**
-- A complete system for providing comprehensive context
-- Includes documentation, examples, rules, patterns, and validation
-- Like writing a full screenplay with all the details
-
-### Why Context Engineering Matters
-
-1. **Reduces AI Failures**: Most agent failures aren't model failures - they're context failures
-2. **Ensures Consistency**: AI follows your project patterns and conventions
-3. **Enables Complex Features**: AI can handle multi-step implementations with proper context
-4. **Self-Correcting**: Validation loops allow AI to fix its own mistakes
-
-## Template Structure
-
-```
-context-engineering-intro/
-├── .claude/
-│   ├── commands/
-│   │   ├── generate-prp.md    # Generates comprehensive PRPs
-│   │   └── execute-prp.md     # Executes PRPs to implement features
-│   └── settings.local.json    # Claude Code permissions
-├── PRPs/
-│   ├── templates/
-│   │   └── prp_base.md       # Base template for PRPs
-│   └── EXAMPLE_multi_agent_prp.md  # Example of a complete PRP
-├── examples/                  # Your code examples (critical!)
-├── CLAUDE.md                 # Global rules for AI assistant
-├── INITIAL.md               # Template for feature requests
-├── INITIAL_EXAMPLE.md       # Example feature request
-└── README.md                # This file
-```
-
-This template doesn't focus on RAG and tools with context engineering because I have a LOT more in store for that soon. ;)
-
-## Step-by-Step Guide
-
-### 1. Set Up Global Rules (CLAUDE.md)
-
-The `CLAUDE.md` file contains project-wide rules that the AI assistant will follow in every conversation. The template includes:
-
-- **Project awareness**: Reading planning docs, checking tasks
-- **Code structure**: File size limits, module organization
-- **Testing requirements**: Unit test patterns, coverage expectations
-- **Style conventions**: Language preferences, formatting rules
-- **Documentation standards**: Docstring formats, commenting practices
-
-**You can use the provided template as-is or customize it for your project.**
-
-### 2. Create Your Initial Feature Request
-
-Edit `INITIAL.md` to describe what you want to build:
-
-```markdown
-## FEATURE:
-[Describe what you want to build - be specific about functionality and requirements]
-
-## EXAMPLES:
-[List any example files in the examples/ folder and explain how they should be used]
-
-## DOCUMENTATION:
-[Include links to relevant documentation, APIs, or MCP server resources]
-
-## OTHER CONSIDERATIONS:
-[Mention any gotchas, specific requirements, or things AI assistants commonly miss]
-```
-
-**See `INITIAL_EXAMPLE.md` for a complete example.**
-
-### 3. Generate the PRP
-
-PRPs (Product Requirements Prompts) are comprehensive implementation blueprints that include:
-
-- Complete context and documentation
-- Implementation steps with validation
-- Error handling patterns
-- Test requirements
-
-They are similar to PRDs (Product Requirements Documents) but are crafted more specifically to instruct an AI coding assistant.
-
-Run in Claude Code:
-```bash
-/generate-prp INITIAL.md
-```
-
-**Note:** The slash commands are custom commands defined in `.claude/commands/`. You can view their implementation:
-- `.claude/commands/generate-prp.md` - See how it researches and creates PRPs
-- `.claude/commands/execute-prp.md` - See how it implements features from PRPs
-
-The `$ARGUMENTS` variable in these commands receives whatever you pass after the command name (e.g., `INITIAL.md` or `PRPs/your-feature.md`).
-
-This command will:
-1. Read your feature request
-2. Research the codebase for patterns
-3. Search for relevant documentation
-4. Create a comprehensive PRP in `PRPs/your-feature-name.md`
-
-### 4. Execute the PRP
-
-Once generated, execute the PRP to implement your feature:
+### Démarrage rapide
 
 ```bash
-/execute-prp PRPs/your-feature-name.md
+# 1. Cloner le projet
+git clone https://github.com/votre-username/idea-planner.git
+cd idea-planner
+
+# 2. Installer les dépendances
+npm install
+
+# 3. Démarrer le serveur de développement
+npx expo start
+
+# 4. Scanner le QR code avec Expo Go (mobile) ou appuyer sur 'i' pour iOS / 'a' pour Android
 ```
 
-The AI coding assistant will:
-1. Read all context from the PRP
-2. Create a detailed implementation plan
-3. Execute each step with validation
-4. Run tests and fix any issues
-5. Ensure all success criteria are met
+### Build de production
 
-## Writing Effective INITIAL.md Files
+```bash
+# Build pour toutes les plateformes
+eas build --platform all
 
-### Key Sections Explained
-
-**FEATURE**: Be specific and comprehensive
-- ❌ "Build a web scraper"
-- ✅ "Build an async web scraper using BeautifulSoup that extracts product data from e-commerce sites, handles rate limiting, and stores results in PostgreSQL"
-
-**EXAMPLES**: Leverage the examples/ folder
-- Place relevant code patterns in `examples/`
-- Reference specific files and patterns to follow
-- Explain what aspects should be mimicked
-
-**DOCUMENTATION**: Include all relevant resources
-- API documentation URLs
-- Library guides
-- MCP server documentation
-- Database schemas
-
-**OTHER CONSIDERATIONS**: Capture important details
-- Authentication requirements
-- Rate limits or quotas
-- Common pitfalls
-- Performance requirements
-
-## The PRP Workflow
-
-### How /generate-prp Works
-
-The command follows this process:
-
-1. **Research Phase**
-   - Analyzes your codebase for patterns
-   - Searches for similar implementations
-   - Identifies conventions to follow
-
-2. **Documentation Gathering**
-   - Fetches relevant API docs
-   - Includes library documentation
-   - Adds gotchas and quirks
-
-3. **Blueprint Creation**
-   - Creates step-by-step implementation plan
-   - Includes validation gates
-   - Adds test requirements
-
-4. **Quality Check**
-   - Scores confidence level (1-10)
-   - Ensures all context is included
-
-### How /execute-prp Works
-
-1. **Load Context**: Reads the entire PRP
-2. **Plan**: Creates detailed task list using TodoWrite
-3. **Execute**: Implements each component
-4. **Validate**: Runs tests and linting
-5. **Iterate**: Fixes any issues found
-6. **Complete**: Ensures all requirements met
-
-See `PRPs/EXAMPLE_multi_agent_prp.md` for a complete example of what gets generated.
-
-## Using Examples Effectively
-
-The `examples/` folder is **critical** for success. AI coding assistants perform much better when they can see patterns to follow.
-
-### What to Include in Examples
-
-1. **Code Structure Patterns**
-   - How you organize modules
-   - Import conventions
-   - Class/function patterns
-
-2. **Testing Patterns**
-   - Test file structure
-   - Mocking approaches
-   - Assertion styles
-
-3. **Integration Patterns**
-   - API client implementations
-   - Database connections
-   - Authentication flows
-
-4. **CLI Patterns**
-   - Argument parsing
-   - Output formatting
-   - Error handling
-
-### Example Structure
-
-```
-examples/
-├── README.md           # Explains what each example demonstrates
-├── cli.py             # CLI implementation pattern
-├── agent/             # Agent architecture patterns
-│   ├── agent.py      # Agent creation pattern
-│   ├── tools.py      # Tool implementation pattern
-│   └── providers.py  # Multi-provider pattern
-└── tests/            # Testing patterns
-    ├── test_agent.py # Unit test patterns
-    └── conftest.py   # Pytest configuration
+# Build pour une plateforme spécifique
+eas build --platform ios
+eas build --platform android
 ```
 
-## Best Practices
+## 🎯 Utilisation
 
-### 1. Be Explicit in INITIAL.md
-- Don't assume the AI knows your preferences
-- Include specific requirements and constraints
-- Reference examples liberally
+### Ajouter une idée
 
-### 2. Provide Comprehensive Examples
-- More examples = better implementations
-- Show both what to do AND what not to do
-- Include error handling patterns
+1. Appuyez sur le bouton **"+ Ajouter mon idée"**
+2. Remplissez le titre (obligatoire)
+3. Ajoutez une description (optionnel)
+4. Attribuez une note de 0 à 10 (optionnel)
+5. Sauvegardez votre idée
 
-### 3. Use Validation Gates
-- PRPs include test commands that must pass
-- AI will iterate until all validations succeed
-- This ensures working code on first try
+### Rechercher des idées
 
-### 4. Leverage Documentation
-- Include official API docs
-- Add MCP server resources
-- Reference specific documentation sections
+1. Cliquez sur l'icône de loupe 🔍
+2. Un champ de recherche apparaît avec animation
+3. Tapez votre recherche (titre ou description)
+4. Les résultats s'affichent en temps réel
 
-### 5. Customize CLAUDE.md
-- Add your conventions
-- Include project-specific rules
-- Define coding standards
+### Organiser vos idées
 
-## Resources
+- **Tri par date** : Plus récent ou plus ancien
+- **Tri par note** : Mieux notées ou moins bien notées
+- **Filtrage** : Effacez tous les filtres d'un clic
 
-- [Claude Code Documentation](https://docs.anthropic.com/en/docs/claude-code)
-- [Context Engineering Best Practices](https://www.philschmid.de/context-engineering)
+### Partager une idée
+
+1. Ouvrez une idée
+2. Appuyez sur l'icône de partage
+3. Choisissez l'application de destination
+
+## 🛠️ Structure du projet
+
+```
+src/
+├── components/          # Composants réutilisables
+│   ├── AddIdeaForm.tsx
+│   ├── EditIdeaForm.tsx
+│   ├── IdeaCard.tsx
+│   ├── IdeaFilters.tsx
+│   ├── IdeaList.tsx
+│   └── RatingSelector.tsx
+├── hooks/               # Hooks personnalisés
+│   ├── useAddIdea.ts
+│   ├── useDeepLinking.ts
+│   ├── useIdeas.ts
+│   └── useUpdateIdea.ts
+├── i18n/               # Internationalisation
+│   ├── index.ts
+│   └── locales/
+│       ├── en.ts
+│       └── fr.ts
+├── navigation/         # Configuration de navigation
+│   └── AppNavigator.tsx
+├── screens/           # Écrans de l'application
+│   ├── AddIdeaScreen.tsx
+│   ├── IdeaDetailScreen.tsx
+│   ├── IdeasScreen.tsx
+│   └── SettingsScreen.tsx
+├── services/          # Services et utilitaires
+│   └── localStorage.ts
+└── types/            # Définitions TypeScript
+    └── index.ts
+```
+
+## 🎨 Design et UX
+
+### Principes de design
+
+- **Simplicité** : Interface claire et intuitive
+- **Performance** : Animations fluides et réactivité
+- **Accessibilité** : Respect des standards d'accessibilité
+- **Cohérence** : Design cohérent avec Material Design 3
+
+### Couleurs et thème
+
+- **Couleur primaire** : Bleu (#0066ff)
+- **Background** : Blanc (#ffffff)
+- **Cartes** : Blanc avec ombre légère
+- **Notes** : Code couleur (Rouge: 0-3, Orange: 4-7, Vert: 8-10)
+
+## 🔧 Développement
+
+### Scripts disponibles
+
+```bash
+npm start          # Démarre Expo
+npm run android    # Lance sur Android
+npm run ios        # Lance sur iOS
+npm run web        # Lance sur le web
+```
+
+### Architecture des données
+
+```typescript
+interface Idea {
+  id: string;
+  title: string;
+  description?: string;
+  rating?: number;
+  created_at: string;
+  updated_at: string;
+}
+```
+
+### Hooks principaux
+
+- `useIdeas()` : Gestion de la liste des idées avec pagination
+- `useAddIdea()` : Ajout d'une nouvelle idée
+- `useUpdateIdea()` : Modification d'une idée existante
+
+## 📝 Historique des versions
+
+### v1.0.1 (Actuelle)
+- ✨ Ajout de la recherche textuelle dans titres et descriptions
+- 🎨 Interface de recherche moderne avec icône cliquable
+- ✨ Animation fluide d'apparition du champ de recherche
+- 🐛 Amélioration du texte de partage avec "nouvelle idée"
+- 🔄 Mise à jour du bouton "Ajouter" vers "Ajouter mon idée"
+
+### v1.0.0
+- 🎉 Version initiale
+- 💭 Gestion complète des idées (CRUD)
+- ⭐ Système de notation 0-10
+- 🔄 Tri et filtrage des idées
+- 📤 Fonctionnalité de partage
+- 🌐 Support multilingue (FR/EN)
+- 📱 Interface Material Design
+
+## 🤝 Contribution
+
+Les contributions sont les bienvenues ! Pour contribuer :
+
+1. Fork le projet
+2. Créez une branche pour votre fonctionnalité (`git checkout -b feature/nouvelle-fonctionnalite`)
+3. Commitez vos changements (`git commit -m 'Ajout nouvelle fonctionnalité'`)
+4. Push vers la branche (`git push origin feature/nouvelle-fonctionnalite`)
+5. Ouvrez une Pull Request
+
+## 📄 Licence
+
+Ce projet est sous licence MIT. Voir le fichier [LICENSE](LICENSE) pour plus de détails.
+
+## 👨‍💻 Auteur
+
+Développé avec ❤️ par Charlyboibgdelastreet43ducoin
+
+---
+
+**📱 Téléchargez l'app et commencez à capturer vos idées dès aujourd'hui !**
