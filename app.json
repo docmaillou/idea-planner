@@ -2,7 +2,7 @@
   "expo": {
     "name": "MinDrop",
     "slug": "mindrop",
-    "version": "1.0.1",
+    "version": "1.0.2",
     "orientation": "portrait",
     "sdkVersion": "53.0.0",
     "icon": "./assets/icon.png",

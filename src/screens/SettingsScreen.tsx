@@ -71,7 +71,7 @@ export const SettingsScreen: React.FC = () => {
 
           <List.Item
             title={t("version")}
-            description="1.0.1"
+            description="1.0.2"
             left={(props) => <List.Icon {...props} icon="information" />}
           />
         </List.Section>

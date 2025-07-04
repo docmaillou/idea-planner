@@ -28,7 +28,8 @@
       "Bash(npx eas-cli update:*)",
       "Bash(npx eas-cli build:*)",
       "Bash(npx eas-cli:*)",
-      "Bash(eas build:*)"
+      "Bash(eas build:*)",
+      "Bash(chmod:*)"
     ],
     "deny": []
   }

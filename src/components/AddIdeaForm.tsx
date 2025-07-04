@@ -62,9 +62,6 @@ export const AddIdeaForm: React.FC<AddIdeaFormProps> = ({
       rating: rating,
     };
 
-    console.log('Form submission - rating state:', rating);
-    console.log('Form submission - formData:', formData);
-
     const success = await onSubmit(formData);
     if (success) {
       // Clear form on success

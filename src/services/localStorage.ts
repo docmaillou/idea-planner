@@ -38,8 +38,6 @@ export const localStorageService = {
         updated_at: new Date().toISOString(),
       };
       
-      console.log('Created new idea:', newIdea);
-      
       const updatedIdeas = [newIdea, ...ideas];
       await localStorageService.saveIdeas(updatedIdeas);
       return newIdea;

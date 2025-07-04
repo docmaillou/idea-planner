@@ -27,9 +27,6 @@ export function useAddIdea(): UseAddIdeaResult {
         rating: rating !== undefined ? rating : undefined,
       };
       
-      console.log('Adding idea with data:', ideaData);
-      console.log('Rating parameter received:', rating);
-      console.log('Rating type:', typeof rating);
       await localStorageService.addIdea(ideaData);
 
       // CRITICAL: Return success status

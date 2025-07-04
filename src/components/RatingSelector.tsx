@@ -36,10 +36,7 @@ export const RatingSelector: React.FC<RatingSelectorProps> = ({
           maximumValue={10}
           step={1}
           value={rating || 0}
-          onValueChange={(value) => {
-            console.log('Rating changed to:', value);
-            onRatingChange(value);
-          }}
+          onValueChange={onRatingChange}
           minimumTrackTintColor={theme.colors.primary}
           maximumTrackTintColor={theme.colors.outline}
           thumbStyle={{ backgroundColor: theme.colors.primary }}
