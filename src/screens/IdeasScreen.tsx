@@ -20,16 +20,27 @@ export const IdeasScreen: React.FC = () => {
   const [filters, setFilters] = useState<FilterOptions>({
     sortBy: 'date',
     sortOrder: 'desc',
+    searchQuery: '',
   });
   const navigation = useNavigation<IdeasScreenNavigationProp>();
   const { t } = useTranslation();
 
-  // PATTERN: Sort ideas
-  const sortedIdeas = useMemo(() => {
-    const sorted = [...ideas];
+  // PATTERN: Filter and sort ideas
+  const filteredAndSortedIdeas = useMemo(() => {
+    let filtered = [...ideas];
+
+    // Filter by search query
+    if (filters.searchQuery.trim()) {
+      const query = filters.searchQuery.toLowerCase().trim();
+      filtered = filtered.filter((idea) => {
+        const titleMatch = idea.title.toLowerCase().includes(query);
+        const descriptionMatch = idea.description?.toLowerCase().includes(query) || false;
+        return titleMatch || descriptionMatch;
+      });
+    }
 
     // Sort
-    sorted.sort((a, b) => {
+    filtered.sort((a, b) => {
       if (filters.sortBy === 'date') {
         const dateA = new Date(a.created_at).getTime();
         const dateB = new Date(b.created_at).getTime();
@@ -41,7 +52,7 @@ export const IdeasScreen: React.FC = () => {
       }
     });
 
-    return sorted;
+    return filtered;
   }, [ideas, filters]);
 
   // PATTERN: Handle pull-to-refresh
@@ -80,7 +91,7 @@ export const IdeasScreen: React.FC = () => {
           onFiltersChange={setFilters}
         />
         <IdeaList
-          ideas={sortedIdeas}
+          ideas={filteredAndSortedIdeas}
           loading={loading}
           hasMore={hasMore}
           onLoadMore={handleLoadMore}

@@ -36,7 +36,7 @@ export const en = {
   "retry": "Retry",
   
   // Actions
-  "add": "Add",
+  "add": "Add my idea",
   "edit": "Edit",
   "delete": "Delete",
   "save": "Save",
@@ -57,6 +57,7 @@ export const en = {
   "highestRated": "Highest rated",
   "lowestRated": "Lowest rated",
   "clearFilters": "Clear",
+  "searchIdeas": "Search ideas...",
   
   // Idea Detail
   "createdOn": "Created on",

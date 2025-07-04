@@ -71,7 +71,7 @@ export const IdeaDetailScreen: React.FC = () => {
     if (!idea) return;
 
     try {
-      const message = `💡 ${idea.title}\n\n${idea.description || ''}\n\n${idea.rating !== undefined ? `Note: ${idea.rating}/10` : ''}`;
+      const message = `💡 nouvelle idée ${idea.title}\n\n${idea.description || ''}\n\n${idea.rating !== undefined ? `Note: ${idea.rating}/10` : ''}`;
       await Share.share({
         message,
         title: idea.title,

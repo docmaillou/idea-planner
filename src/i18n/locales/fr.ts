@@ -37,7 +37,7 @@ export const fr = {
   "retry": "Réessayer",
   
   // Actions
-  "add": "Ajouter",
+  "add": "Ajouter mon idée",
   "edit": "Modifier",
   "delete": "Supprimer",
   "save": "Sauvegarder",
@@ -58,6 +58,7 @@ export const fr = {
   "highestRated": "Mieux notées",
   "lowestRated": "Moins bien notées",
   "clearFilters": "Effacer",
+  "searchIdeas": "Rechercher des idées...",
   
   // Idea Detail
   "createdOn": "Créée le",
