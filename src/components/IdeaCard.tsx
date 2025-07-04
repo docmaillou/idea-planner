@@ -31,7 +31,7 @@ export const IdeaCard: React.FC<IdeaCardProps> = React.memo(
       if (rating >= 0 && rating <= 3) {
         return "#ef4444"; // Rouge
       } else if (rating >= 4 && rating <= 7) {
-        return "#f59e0b"; // Jaune/Orange
+        return theme.colors.primary; // Couleur du thème
       } else if (rating >= 8 && rating <= 10) {
         return "#22c55e"; // Vert
       }
@@ -94,7 +94,7 @@ const styles = StyleSheet.create({
     elevation: 3,
     backgroundColor: "#ffffff",
     borderRadius: 12,
-    shadowColor: "#0066ff",
+    shadowColor: "#000000",
     shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.1,
     shadowRadius: 4,

@@ -25,6 +25,12 @@ export const fr = {
   "language": "Langue",
   "french": "Français",
   "english": "English",
+  "theme": "Thème",
+  "themeBlue": "Bleu",
+  "themeOrange": "Orange",
+  "themeGreen": "Vert",
+  "themePurple": "Violet",
+  "themePink": "Rose",
   "about": "À propos",
   "version": "Version",
   

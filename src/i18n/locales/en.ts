@@ -24,6 +24,12 @@ export const en = {
   "language": "Language",
   "french": "Français",
   "english": "English",
+  "theme": "Theme",
+  "themeBlue": "Blue",
+  "themeOrange": "Orange",
+  "themeGreen": "Green",
+  "themePurple": "Purple",
+  "themePink": "Pink",
   "about": "About",
   "version": "Version",
   

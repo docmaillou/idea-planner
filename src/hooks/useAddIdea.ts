@@ -24,10 +24,12 @@ export function useAddIdea(): UseAddIdeaResult {
       const ideaData = {
         title: title.trim(),
         description: description?.trim() || null,
-        rating: rating,
+        rating: rating !== undefined ? rating : undefined,
       };
       
       console.log('Adding idea with data:', ideaData);
+      console.log('Rating parameter received:', rating);
+      console.log('Rating type:', typeof rating);
       await localStorageService.addIdea(ideaData);
 
       // CRITICAL: Return success status

@@ -1,13 +1,16 @@
-// PATTERN: Settings screen with language selection
+// PATTERN: Settings screen with language selection and theme selection
 import React from "react";
 import { View, StyleSheet } from "react-native";
 import { List, useTheme, Divider } from "react-native-paper";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { useTranslation } from "react-i18next";
+import { useAppTheme } from "../hooks/useTheme";
+import { ThemeSelector } from "../components/ThemeSelector";
 
 export const SettingsScreen: React.FC = () => {
   const theme = useTheme();
   const { t, i18n } = useTranslation();
+  const { currentTheme, availableThemes, setTheme } = useAppTheme();
 
   const changeLanguage = (language: string) => {
     i18n.changeLanguage(language);
@@ -16,6 +19,17 @@ export const SettingsScreen: React.FC = () => {
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.content}>
+        <List.Section>
+          <List.Subheader>{t("theme")}</List.Subheader>
+          <ThemeSelector
+            themes={availableThemes}
+            currentTheme={currentTheme}
+            onThemeSelect={setTheme}
+          />
+        </List.Section>
+
+        <Divider style={styles.divider} />
+
         <List.Section>
           <List.Subheader>{t("language")}</List.Subheader>
 
