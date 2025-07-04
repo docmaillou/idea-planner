@@ -25,20 +25,17 @@
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
-      },
-      "permissions": [
-        "android.permission.INTERNET",
-        "android.permission.ACCESS_NETWORK_STATE"
-      ]
+      }
     },
     "web": {
       "favicon": "./assets/favicon.png"
     },
+    "plugins": [],
     "extra": {
       "eas": {
-        "projectId": "your-project-id"
+        "projectId": "f7637bed-9ef1-4470-b857-882381d5f01e"
       }
     },
-    "plugins": []
+    "owner": "docmaillou"
   }
 }

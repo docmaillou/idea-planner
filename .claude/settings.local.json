@@ -21,7 +21,13 @@
       "Bash(rm:*)",
       "Bash(npx expo:*)",
       "Bash(timeout 30 npx expo start --clear)",
-      "Bash(npm uninstall:*)"
+      "Bash(npm uninstall:*)",
+      "Bash(git add:*)",
+      "Bash(git commit:*)",
+      "Bash(npx eas update:*)",
+      "Bash(npx eas-cli update:*)",
+      "Bash(npx eas-cli build:*)",
+      "Bash(npx eas-cli:*)"
     ],
     "deny": []
   }
