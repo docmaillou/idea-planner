@@ -1,15 +1,23 @@
-// PATTERN: Main ideas list screen with infinite scroll
+// PATTERN: Main ideas list screen with infinite scroll and FAB
 import React, { useState } from 'react';
 import { View, StyleSheet } from 'react-native';
-import { Snackbar } from 'react-native-paper';
+import { Snackbar, FAB } from 'react-native-paper';
 import { SafeAreaView } from 'react-native-safe-area-context';
+import { useNavigation, useFocusEffect } from '@react-navigation/native';
+import { useTranslation } from 'react-i18next';
+import { NativeStackNavigationProp } from '@react-navigation/native-stack';
+import { RootStackParamList } from '../types';
 import { IdeaList } from '../components/IdeaList';
 import { useIdeas } from '../hooks/useIdeas';
+
+type IdeasScreenNavigationProp = NativeStackNavigationProp<RootStackParamList>;
 
 export const IdeasScreen: React.FC = () => {
   const { ideas, loading, hasMore, fetchIdeas, refreshIdeas, error } = useIdeas();
   const [refreshing, setRefreshing] = useState(false);
   const [errorVisible, setErrorVisible] = useState(false);
+  const navigation = useNavigation<IdeasScreenNavigationProp>();
+  const { t } = useTranslation();
 
   // PATTERN: Handle pull-to-refresh
   const handleRefresh = async () => {
@@ -32,6 +40,13 @@ export const IdeasScreen: React.FC = () => {
     }
   }, [error]);
 
+  // PATTERN: Refresh ideas when screen comes into focus (after adding new idea)
+  useFocusEffect(
+    React.useCallback(() => {
+      refreshIdeas();
+    }, [refreshIdeas])
+  );
+
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.content}>
@@ -45,19 +60,27 @@ export const IdeasScreen: React.FC = () => {
         />
       </View>
 
+      <FAB
+        icon="plus"
+        style={styles.fab}
+        onPress={() => navigation.navigate('AddIdea')}
+        label={t('add')}
+        size="medium"
+      />
+
       <Snackbar
         visible={errorVisible}
         onDismiss={() => setErrorVisible(false)}
         duration={4000}
         action={{
-          label: 'Retry',
+          label: t('retry'),
           onPress: () => {
             setErrorVisible(false);
             refreshIdeas();
           },
         }}
       >
-        {error || 'Something went wrong'}
+        {error || t('loadError')}
       </Snackbar>
     </SafeAreaView>
   );
@@ -66,8 +89,22 @@ export const IdeasScreen: React.FC = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    backgroundColor: '#ffffff',
   },
   content: {
     flex: 1,
+    backgroundColor: '#ffffff',
+  },
+  fab: {
+    position: 'absolute',
+    margin: 16,
+    right: 0,
+    bottom: 0,
+    borderRadius: 16,
+    elevation: 6,
+    shadowColor: '#0066ff',
+    shadowOffset: { width: 0, height: 4 },
+    shadowOpacity: 0.2,
+    shadowRadius: 8,
   },
 });

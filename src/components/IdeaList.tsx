@@ -1,7 +1,8 @@
-// PATTERN: FlatList with infinite scroll optimization
+// PATTERN: FlatList with infinite scroll optimization and i18n
 import React, { useCallback, useMemo } from 'react';
 import { FlatList, View, StyleSheet, RefreshControl, ListRenderItem } from 'react-native';
 import { Text, ActivityIndicator, useTheme } from 'react-native-paper';
+import { useTranslation } from 'react-i18next';
 import { IdeaCard } from './IdeaCard';
 import { Idea } from '../types';
 
@@ -23,6 +24,7 @@ export const IdeaList: React.FC<IdeaListProps> = ({
   refreshing = false,
 }) => {
   const theme = useTheme();
+  const { t } = useTranslation();
 
   // PATTERN: Memoized render item function to prevent re-renders
   const renderItem: ListRenderItem<Idea> = useCallback(({ item }) => (
@@ -36,27 +38,27 @@ export const IdeaList: React.FC<IdeaListProps> = ({
   const EmptyComponent = useMemo(() => (
     <View style={styles.emptyContainer}>
       <Text variant="titleMedium" style={[styles.emptyTitle, { color: theme.colors.onSurfaceVariant }]}>
-        No ideas yet
+        {t('noIdeasYet')}
       </Text>
       <Text variant="bodyMedium" style={[styles.emptySubtitle, { color: theme.colors.outline }]}>
-        Tap the + button to add your first idea
+        {t('tapToAddFirstIdea')}
       </Text>
     </View>
-  ), [theme.colors.onSurfaceVariant, theme.colors.outline]);
+  ), [theme.colors.onSurfaceVariant, theme.colors.outline, t]);
 
   // PATTERN: Memoized footer component with loading indicator
   const FooterComponent = useMemo(() => {
-    if (!loading) return null;
+    if (!loading || !hasMore) return null;
     
     return (
       <View style={styles.footerContainer}>
         <ActivityIndicator animating={true} size="small" />
         <Text variant="bodySmall" style={[styles.loadingText, { color: theme.colors.outline }]}>
-          Loading more ideas...
+          {t('loadingMoreIdeas')}
         </Text>
       </View>
     );
-  }, [loading, theme.colors.outline]);
+  }, [loading, hasMore, theme.colors.outline, t]);
 
   // GOTCHA: Debounced onEndReached to prevent multiple calls
   const handleLoadMore = useCallback(() => {
@@ -99,9 +101,11 @@ export const IdeaList: React.FC<IdeaListProps> = ({
 const styles = StyleSheet.create({
   list: {
     flex: 1,
+    backgroundColor: '#ffffff',
   },
   contentContainer: {
-    paddingVertical: 8,
+    paddingVertical: 12,
+    backgroundColor: '#ffffff',
   },
   emptyContainer: {
     flex: 1,
@@ -109,22 +113,26 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     paddingHorizontal: 32,
     paddingVertical: 64,
+    backgroundColor: '#ffffff',
   },
   emptyTitle: {
     textAlign: 'center',
-    marginBottom: 8,
+    marginBottom: 12,
+    fontWeight: '600',
   },
   emptySubtitle: {
     textAlign: 'center',
-    lineHeight: 20,
+    lineHeight: 22,
   },
   footerContainer: {
     flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center',
-    paddingVertical: 20,
+    paddingVertical: 24,
+    backgroundColor: '#ffffff',
   },
   loadingText: {
-    marginLeft: 8,
+    marginLeft: 12,
+    fontWeight: '500',
   },
 });

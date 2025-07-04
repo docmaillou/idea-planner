@@ -1,10 +1,11 @@
-// PATTERN: Add new idea screen with form and navigation
+// PATTERN: Add new idea screen with form, navigation and i18n
 import React, { useState } from 'react';
 import { View, StyleSheet } from 'react-native';
 import { Snackbar } from 'react-native-paper';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useNavigation } from '@react-navigation/native';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
+import { useTranslation } from 'react-i18next';
 import { AddIdeaForm } from '../components/AddIdeaForm';
 import { useAddIdea } from '../hooks/useAddIdea';
 import { RootStackParamList, IdeaFormData } from '../types';
@@ -16,6 +17,7 @@ export const AddIdeaScreen: React.FC = () => {
   const { addIdea, loading, error } = useAddIdea();
   const [successVisible, setSuccessVisible] = useState(false);
   const [errorVisible, setErrorVisible] = useState(false);
+  const { t } = useTranslation();
 
   // PATTERN: Handle form submission
   const handleSubmit = async (data: IdeaFormData): Promise<boolean> => {
@@ -26,7 +28,11 @@ export const AddIdeaScreen: React.FC = () => {
       // PATTERN: Navigate back after successful save
       setTimeout(() => {
         setSuccessVisible(false);
-        navigation.goBack();
+        if (navigation.canGoBack()) {
+          navigation.goBack();
+        } else {
+          navigation.navigate('MainTabs');
+        }
       }, 1500);
       return true;
     } else {
@@ -57,7 +63,7 @@ export const AddIdeaScreen: React.FC = () => {
         onDismiss={() => setSuccessVisible(false)}
         duration={1500}
       >
-        Idea saved successfully!
+        {`${t('saveIdea')} ✓`}
       </Snackbar>
 
       <Snackbar
@@ -65,13 +71,13 @@ export const AddIdeaScreen: React.FC = () => {
         onDismiss={() => setErrorVisible(false)}
         duration={4000}
         action={{
-          label: 'Retry',
+          label: t('retry'),
           onPress: () => {
             setErrorVisible(false);
           },
         }}
       >
-        {error || 'Failed to save idea'}
+        {error || t('saveError')}
       </Snackbar>
     </SafeAreaView>
   );
@@ -80,8 +86,10 @@ export const AddIdeaScreen: React.FC = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    backgroundColor: '#ffffff',
   },
   content: {
     flex: 1,
+    backgroundColor: '#ffffff',
   },
 });

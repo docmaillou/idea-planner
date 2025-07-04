@@ -1,7 +1,7 @@
 {
   "name": "idea-planner",
   "version": "1.0.0",
-  "main": "App.tsx",
+  "main": "index.js",
   "scripts": {
     "start": "expo start",
     "android": "expo start --android",
@@ -9,13 +9,18 @@
     "web": "expo start --web"
   },
   "dependencies": {
+    "@expo/metro-runtime": "~5.0.4",
+    "@expo/vector-icons": "^14.1.0",
     "@react-native-async-storage/async-storage": "2.1.2",
+    "@react-navigation/bottom-tabs": "^6.6.1",
     "@react-navigation/native": "^6.1.9",
     "@react-navigation/native-stack": "^6.9.17",
-    "@supabase/supabase-js": "^2.38.5",
     "expo": "~53.0.0",
+    "expo-localization": "^16.1.6",
     "expo-status-bar": "~2.2.3",
+    "i18next": "^25.3.0",
     "react": "19.0.0",
+    "react-i18next": "^15.6.0",
     "react-native": "0.79.5",
     "react-native-paper": "^5.11.6",
     "react-native-safe-area-context": "5.4.0",

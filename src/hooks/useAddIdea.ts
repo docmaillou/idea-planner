@@ -1,14 +1,14 @@
-// PATTERN: Hook for adding new ideas with optimistic updates
+// PATTERN: Hook for adding new ideas with local storage
 import { useState, useCallback } from 'react';
-import { supabase, supabaseHelpers } from '../services/supabase';
+import { localStorageService } from '../services/localStorage';
 import { UseAddIdeaResult } from '../types';
-import { SUPABASE_TABLES, ERROR_MESSAGES } from '../utils/constants';
+import { ERROR_MESSAGES } from '../utils/constants';
 
 export function useAddIdea(): UseAddIdeaResult {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
-  // PATTERN: Add new idea with validation
+  // PATTERN: Add new idea with validation to local storage
   const addIdea = useCallback(async (title: string, description?: string): Promise<boolean> => {
     try {
       setLoading(true);
@@ -20,33 +20,11 @@ export function useAddIdea(): UseAddIdeaResult {
         return false;
       }
 
-      // PATTERN: Get current user or create anonymous session
-      let user = await supabaseHelpers.getCurrentUser();
-      if (!user) {
-        const { user: anonymousUser } = await supabaseHelpers.signInAnonymously();
-        user = anonymousUser;
-      }
-
-      if (!user) {
-        throw new Error('Unable to authenticate user');
-      }
-
-      // PATTERN: Insert new idea
-      const { data, error: insertError } = await supabase
-        .from(SUPABASE_TABLES.IDEAS)
-        .insert([
-          {
-            title: title.trim(),
-            description: description?.trim() || null,
-            user_id: user.id,
-          },
-        ])
-        .select()
-        .single();
-
-      if (insertError) {
-        throw insertError;
-      }
+      // PATTERN: Add to local storage
+      await localStorageService.addIdea({
+        title: title.trim(),
+        description: description?.trim() || null,
+      });
 
       // CRITICAL: Return success status
       return true;

@@ -1,11 +1,10 @@
-// PATTERN: TypeScript interfaces for Supabase data models
+// PATTERN: TypeScript interfaces for local storage data models
 export interface Idea {
   id: string;
   title: string;
   description?: string;
   created_at: string;
   updated_at: string;
-  user_id: string;
 }
 
 // PATTERN: State management interfaces
@@ -18,8 +17,13 @@ export interface IdeaListState {
 
 // PATTERN: React Navigation types
 export type RootStackParamList = {
-  Ideas: undefined;
+  MainTabs: undefined;
   AddIdea: undefined;
+};
+
+export type TabParamList = {
+  IdeasTab: undefined;
+  SettingsTab: undefined;
 };
 
 // PATTERN: Hook return types
@@ -45,8 +49,8 @@ export interface IdeaFormData {
   description?: string;
 }
 
-// PATTERN: Supabase response types
-export interface SupabaseResponse<T> {
+// PATTERN: Local storage response types
+export interface LocalStorageResponse<T> {
   data: T | null;
   error: any;
 }

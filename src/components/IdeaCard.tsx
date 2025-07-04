@@ -56,26 +56,34 @@ IdeaCard.displayName = 'IdeaCard';
 const styles = StyleSheet.create({
   card: {
     marginHorizontal: 16,
-    marginVertical: 8,
-    elevation: 2,
+    marginVertical: 6,
+    elevation: 3,
+    backgroundColor: '#ffffff',
+    borderRadius: 12,
+    shadowColor: '#0066ff',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.1,
+    shadowRadius: 4,
   },
   header: {
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'flex-start',
-    marginBottom: 8,
+    marginBottom: 10,
   },
   title: {
     flex: 1,
-    marginRight: 8,
-    fontWeight: '600',
+    marginRight: 12,
+    fontWeight: '700',
+    color: '#0f172a',
   },
   date: {
     fontSize: 12,
     textAlign: 'right',
+    fontWeight: '500',
   },
   description: {
-    marginTop: 4,
-    lineHeight: 20,
+    marginTop: 6,
+    lineHeight: 22,
   },
 });

@@ -8,9 +8,9 @@ export const APP_CONSTANTS = {
   TIMEOUT_DURATION: 10000,
 } as const;
 
-// PATTERN: Supabase table names
-export const SUPABASE_TABLES = {
-  IDEAS: 'ideas',
+// PATTERN: Local storage keys
+export const STORAGE_KEYS_LOCAL = {
+  IDEAS: 'ideas_storage',
 } as const;
 
 // PATTERN: Storage keys
@@ -21,7 +21,6 @@ export const STORAGE_KEYS = {
 
 // PATTERN: Error messages
 export const ERROR_MESSAGES = {
-  NETWORK_ERROR: 'Network error. Please check your connection.',
   SAVE_ERROR: 'Failed to save idea. Please try again.',
   LOAD_ERROR: 'Failed to load ideas. Please try again.',
   VALIDATION_ERROR: 'Please fill in all required fields.',
