@@ -1,0 +1,35 @@
+# Example requirements for Pydantic AI multi-agent systems
+# These are the typical dependencies you would need
+
+# Core AI framework
+pydantic-ai>=0.0.1
+
+# LLM providers
+openai>=1.0.0
+anthropic>=0.8.0
+
+# HTTP client for API calls
+httpx>=0.25.0
+
+# CLI framework
+click>=8.0.0
+rich>=13.0.0
+
+# Environment management
+python-dotenv>=1.0.0
+
+# Testing
+pytest>=7.0.0
+pytest-asyncio>=0.21.0
+
+# Email integration (for Gmail API example)
+google-api-python-client>=2.0.0
+google-auth-httplib2>=0.1.0
+google-auth-oauthlib>=1.0.0
+
+# Data validation and serialization
+pydantic>=2.0.0
+
+# Optional: Code quality tools
+ruff>=0.1.0
+mypy>=1.0.0

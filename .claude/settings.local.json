@@ -19,7 +19,8 @@
       "WebFetch(domain:docs.anthropic.com)",
       "Bash(npm install:*)",
       "Bash(rm:*)",
-      "Bash(npx expo:*)"
+      "Bash(npx expo:*)",
+      "Bash(timeout 30 npx expo start --clear)"
     ],
     "deny": []
   }

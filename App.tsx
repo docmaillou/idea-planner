@@ -1,6 +1,7 @@
 // PATTERN: Main App component with providers and navigation
 import React from 'react';
 import { StatusBar } from 'expo-status-bar';
+import { AppRegistry } from 'react-native';
 import { PaperProvider, MD3LightTheme } from 'react-native-paper';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { AppNavigator } from './src/navigation/AppNavigator';
@@ -29,3 +30,6 @@ export default function App() {
     </SafeAreaProvider>
   );
 }
+
+// Register the main component
+AppRegistry.registerComponent('main', () => App);
