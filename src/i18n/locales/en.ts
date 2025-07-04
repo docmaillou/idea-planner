@@ -17,6 +17,7 @@ export const en = {
   "ideaDescription": "Description",
   "ideaDescriptionPlaceholder": "Ex: An app to discover and share recipes with rating system and automatic shopping list",
   "saveIdea": "Save Idea",
+  "ideaSaved": "Idea saved",
   "cancel": "Cancel",
   
   // Settings Screen
@@ -56,4 +57,20 @@ export const en = {
   "highestRated": "Highest rated",
   "lowestRated": "Lowest rated",
   "clearFilters": "Clear",
+  
+  // Idea Detail
+  "createdOn": "Created on",
+  "modifiedOn": "Modified on",
+  "shareError": "Error sharing",
+  "deleteIdea": "Delete idea",
+  "deleteIdeaConfirm": "Are you sure you want to delete this idea?",
+  "ideaDeleted": "Idea deleted",
+  "deleteError": "Error deleting",
+  "loading": "Loading",
+  "ideaNotFound": "Idea not found",
+  "goBack": "Go back",
+  "editingMode": "Editing mode",
+  "editingComingSoon": "Feature coming soon",
+  "saveChanges": "Save changes",
+  "ideaUpdated": "Idea updated",
 };

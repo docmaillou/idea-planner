@@ -17,6 +17,8 @@ export const fr = {
   "ideaDescription": "Description",
   "ideaDescriptionPlaceholder": "Ex: Une app pour découvrir et partager des recettes avec système de notation et liste de courses automatique",
   "saveIdea": "Sauvegarder l'Idée",
+  "description": "Description",
+  "ideaSaved": "Idée sauvegardée",
   "cancel": "Annuler",
   
   // Settings Screen
@@ -56,4 +58,20 @@ export const fr = {
   "highestRated": "Mieux notées",
   "lowestRated": "Moins bien notées",
   "clearFilters": "Effacer",
+  
+  // Idea Detail
+  "createdOn": "Créée le",
+  "modifiedOn": "Modifiée le",
+  "shareError": "Erreur lors du partage",
+  "deleteIdea": "Supprimer l'idée",
+  "deleteIdeaConfirm": "Êtes-vous sûr de vouloir supprimer cette idée ?",
+  "ideaDeleted": "Idée supprimée",
+  "deleteError": "Erreur lors de la suppression",
+  "loading": "Chargement",
+  "ideaNotFound": "Idée introuvable",
+  "goBack": "Retour",
+  "editingMode": "Mode édition",
+  "editingComingSoon": "Fonctionnalité bientôt disponible",
+  "saveChanges": "Sauvegarder les modifications",
+  "ideaUpdated": "Idée mise à jour",
 };

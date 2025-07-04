@@ -1,16 +1,19 @@
 // PATTERN: Add new idea screen with form, navigation and i18n
-import React, { useState } from 'react';
-import { View, StyleSheet } from 'react-native';
-import { Snackbar } from 'react-native-paper';
-import { SafeAreaView } from 'react-native-safe-area-context';
-import { useNavigation } from '@react-navigation/native';
-import { NativeStackNavigationProp } from '@react-navigation/native-stack';
-import { useTranslation } from 'react-i18next';
-import { AddIdeaForm } from '../components/AddIdeaForm';
-import { useAddIdea } from '../hooks/useAddIdea';
-import { RootStackParamList, IdeaFormData } from '../types';
+import React, { useState } from "react";
+import { View, StyleSheet } from "react-native";
+import { Snackbar } from "react-native-paper";
+import { SafeAreaView } from "react-native-safe-area-context";
+import { useNavigation } from "@react-navigation/native";
+import { NativeStackNavigationProp } from "@react-navigation/native-stack";
+import { useTranslation } from "react-i18next";
+import { AddIdeaForm } from "../components/AddIdeaForm";
+import { useAddIdea } from "../hooks/useAddIdea";
+import { RootStackParamList, IdeaFormData } from "../types";
 
-type AddIdeaScreenNavigationProp = NativeStackNavigationProp<RootStackParamList, 'AddIdea'>;
+type AddIdeaScreenNavigationProp = NativeStackNavigationProp<
+  RootStackParamList,
+  "AddIdea"
+>;
 
 export const AddIdeaScreen: React.FC = () => {
   const navigation = useNavigation<AddIdeaScreenNavigationProp>();
@@ -22,7 +25,7 @@ export const AddIdeaScreen: React.FC = () => {
   // PATTERN: Handle form submission
   const handleSubmit = async (data: IdeaFormData): Promise<boolean> => {
     const success = await addIdea(data.title, data.description, data.rating);
-    
+
     if (success) {
       setSuccessVisible(true);
       // PATTERN: Navigate back after successful save
@@ -31,7 +34,7 @@ export const AddIdeaScreen: React.FC = () => {
         if (navigation.canGoBack()) {
           navigation.goBack();
         } else {
-          navigation.navigate('MainTabs');
+          navigation.navigate("MainTabs");
         }
       }, 1500);
       return true;
@@ -51,11 +54,7 @@ export const AddIdeaScreen: React.FC = () => {
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.content}>
-        <AddIdeaForm
-          onSubmit={handleSubmit}
-          loading={loading}
-          error={error}
-        />
+        <AddIdeaForm onSubmit={handleSubmit} loading={loading} error={error} />
       </View>
 
       <Snackbar
@@ -63,7 +62,7 @@ export const AddIdeaScreen: React.FC = () => {
         onDismiss={() => setSuccessVisible(false)}
         duration={1500}
       >
-        {`${t('saveIdea')} ✓`}
+        {`${t("ideaSaved")}`}
       </Snackbar>
 
       <Snackbar
@@ -71,13 +70,13 @@ export const AddIdeaScreen: React.FC = () => {
         onDismiss={() => setErrorVisible(false)}
         duration={4000}
         action={{
-          label: t('retry'),
+          label: t("retry"),
           onPress: () => {
             setErrorVisible(false);
           },
         }}
       >
-        {error || t('saveError')}
+        {error || t("saveError")}
       </Snackbar>
     </SafeAreaView>
   );
@@ -86,10 +85,10 @@ export const AddIdeaScreen: React.FC = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#ffffff',
+    backgroundColor: "#ffffff",
   },
   content: {
     flex: 1,
-    backgroundColor: '#ffffff',
+    backgroundColor: "#ffffff",
   },
 });

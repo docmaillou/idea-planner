@@ -3,8 +3,12 @@ import React, { useCallback, useMemo } from 'react';
 import { FlatList, View, StyleSheet, RefreshControl, ListRenderItem } from 'react-native';
 import { Text, ActivityIndicator, useTheme } from 'react-native-paper';
 import { useTranslation } from 'react-i18next';
+import { useNavigation } from '@react-navigation/native';
+import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { IdeaCard } from './IdeaCard';
-import { Idea } from '../types';
+import { Idea, RootStackParamList } from '../types';
+
+type IdeaListNavigationProp = NativeStackNavigationProp<RootStackParamList>;
 
 interface IdeaListProps {
   ideas: Idea[];
@@ -25,11 +29,17 @@ export const IdeaList: React.FC<IdeaListProps> = ({
 }) => {
   const theme = useTheme();
   const { t } = useTranslation();
+  const navigation = useNavigation<IdeaListNavigationProp>();
+
+  // PATTERN: Handle idea card press
+  const handleIdeaPress = useCallback((ideaId: string) => {
+    navigation.navigate('IdeaDetail', { ideaId });
+  }, [navigation]);
 
   // PATTERN: Memoized render item function to prevent re-renders
   const renderItem: ListRenderItem<Idea> = useCallback(({ item }) => (
-    <IdeaCard idea={item} />
-  ), []);
+    <IdeaCard idea={item} onPress={() => handleIdeaPress(item.id)} />
+  ), [handleIdeaPress]);
 
   // PATTERN: Memoized key extractor for performance
   const keyExtractor = useCallback((item: Idea) => item.id, []);

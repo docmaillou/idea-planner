@@ -9,6 +9,7 @@ import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { RootStackParamList, TabParamList } from '../types';
 import { IdeasScreen } from '../screens/IdeasScreen';
 import { AddIdeaScreen } from '../screens/AddIdeaScreen';
+import { IdeaDetailScreen } from '../screens/IdeaDetailScreen';
 import { SettingsScreen } from '../screens/SettingsScreen';
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
@@ -118,6 +119,13 @@ export function AppNavigator() {
               />
             ),
           })}
+        />
+        <Stack.Screen
+          name="IdeaDetail"
+          component={IdeaDetailScreen}
+          options={{
+            headerShown: false,
+          }}
         />
       </Stack.Navigator>
     </NavigationContainer>

@@ -20,6 +20,7 @@ export interface IdeaListState {
 export type RootStackParamList = {
   MainTabs: undefined;
   AddIdea: undefined;
+  IdeaDetail: { ideaId: string };
 };
 
 export type TabParamList = {
