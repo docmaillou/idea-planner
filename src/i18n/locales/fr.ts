@@ -13,9 +13,9 @@ export const fr = {
   // Add Idea Screen
   "addNewIdea": "Ajouter une Nouvelle Idée",
   "ideaTitle": "Titre de l'idée",
-  "ideaTitlePlaceholder": "Entrez le titre de votre idée...",
+  "ideaTitlePlaceholder": "Ex: Application mobile de recettes",
   "ideaDescription": "Description",
-  "ideaDescriptionPlaceholder": "Décrivez votre idée (optionnel)...",
+  "ideaDescriptionPlaceholder": "Ex: Une app pour découvrir et partager des recettes avec système de notation et liste de courses automatique",
   "saveIdea": "Sauvegarder l'Idée",
   "cancel": "Annuler",
   
@@ -43,4 +43,17 @@ export const fr = {
   
   // Floating Action Button
   "addNewIdeaFab": "Ajouter une nouvelle idée",
+  
+  // Rating
+  "rating": "Note",
+  "optional": "optionnel",
+  "clearRating": "Effacer la note",
+  
+  // Filters
+  "allRatings": "Toutes les notes",
+  "newestFirst": "Plus récent",
+  "oldestFirst": "Plus ancien",
+  "highestRated": "Mieux notées",
+  "lowestRated": "Moins bien notées",
+  "clearFilters": "Effacer",
 };

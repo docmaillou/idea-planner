@@ -1,10 +1,11 @@
 // PATTERN: Controlled form component with validation and i18n
 import React, { useState, useCallback } from 'react';
-import { View, StyleSheet, KeyboardAvoidingView, Platform } from 'react-native';
+import { View, StyleSheet, KeyboardAvoidingView, Platform, TouchableWithoutFeedback, Keyboard } from 'react-native';
 import { TextInput, Button, Text, useTheme } from 'react-native-paper';
 import { useTranslation } from 'react-i18next';
 import { IdeaFormData } from '../types';
 import { APP_CONSTANTS } from '../utils/constants';
+import { RatingSelector } from './RatingSelector';
 
 interface AddIdeaFormProps {
   onSubmit: (data: IdeaFormData) => Promise<boolean>;
@@ -21,6 +22,7 @@ export const AddIdeaForm: React.FC<AddIdeaFormProps> = ({
   const { t } = useTranslation();
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
+  const [rating, setRating] = useState<number | undefined>(undefined);
   const [titleError, setTitleError] = useState('');
   const [descriptionError, setDescriptionError] = useState('');
 
@@ -57,6 +59,7 @@ export const AddIdeaForm: React.FC<AddIdeaFormProps> = ({
     const formData: IdeaFormData = {
       title: title.trim(),
       description: description.trim() || undefined,
+      rating: rating,
     };
 
     const success = await onSubmit(formData);
@@ -64,6 +67,7 @@ export const AddIdeaForm: React.FC<AddIdeaFormProps> = ({
       // Clear form on success
       setTitle('');
       setDescription('');
+      setRating(undefined);
       setTitleError('');
       setDescriptionError('');
     }
@@ -86,7 +90,8 @@ export const AddIdeaForm: React.FC<AddIdeaFormProps> = ({
       style={styles.container}
       behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
     >
-      <View style={styles.form}>
+      <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
+        <View style={styles.form}>
         <View style={styles.inputContainer}>
           <TextInput
             label={t('ideaTitle')}
@@ -139,6 +144,11 @@ export const AddIdeaForm: React.FC<AddIdeaFormProps> = ({
           </View>
         </View>
 
+        <RatingSelector
+          rating={rating}
+          onRatingChange={setRating}
+        />
+
         {error && (
           <Text variant="bodySmall" style={[styles.errorText, { color: theme.colors.error }]}>
             {error}
@@ -154,7 +164,8 @@ export const AddIdeaForm: React.FC<AddIdeaFormProps> = ({
         >
           {loading ? t('save') + '...' : t('saveIdea')}
         </Button>
-      </View>
+        </View>
+      </TouchableWithoutFeedback>
     </KeyboardAvoidingView>
   );
 };

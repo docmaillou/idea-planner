@@ -1,13 +1,14 @@
 // PATTERN: Main ideas list screen with infinite scroll and FAB
-import React, { useState } from 'react';
+import React, { useState, useMemo } from 'react';
 import { View, StyleSheet } from 'react-native';
 import { Snackbar, FAB } from 'react-native-paper';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useNavigation, useFocusEffect } from '@react-navigation/native';
 import { useTranslation } from 'react-i18next';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
-import { RootStackParamList } from '../types';
+import { RootStackParamList, Idea } from '../types';
 import { IdeaList } from '../components/IdeaList';
+import { IdeaFilters, FilterOptions } from '../components/IdeaFilters';
 import { useIdeas } from '../hooks/useIdeas';
 
 type IdeasScreenNavigationProp = NativeStackNavigationProp<RootStackParamList>;
@@ -16,8 +17,32 @@ export const IdeasScreen: React.FC = () => {
   const { ideas, loading, hasMore, fetchIdeas, refreshIdeas, error } = useIdeas();
   const [refreshing, setRefreshing] = useState(false);
   const [errorVisible, setErrorVisible] = useState(false);
+  const [filters, setFilters] = useState<FilterOptions>({
+    sortBy: 'date',
+    sortOrder: 'desc',
+  });
   const navigation = useNavigation<IdeasScreenNavigationProp>();
   const { t } = useTranslation();
+
+  // PATTERN: Sort ideas
+  const sortedIdeas = useMemo(() => {
+    const sorted = [...ideas];
+
+    // Sort
+    sorted.sort((a, b) => {
+      if (filters.sortBy === 'date') {
+        const dateA = new Date(a.created_at).getTime();
+        const dateB = new Date(b.created_at).getTime();
+        return filters.sortOrder === 'desc' ? dateB - dateA : dateA - dateB;
+      } else {
+        const ratingA = a.rating || 0;
+        const ratingB = b.rating || 0;
+        return filters.sortOrder === 'desc' ? ratingB - ratingA : ratingA - ratingB;
+      }
+    });
+
+    return sorted;
+  }, [ideas, filters]);
 
   // PATTERN: Handle pull-to-refresh
   const handleRefresh = async () => {
@@ -50,8 +75,12 @@ export const IdeasScreen: React.FC = () => {
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.content}>
+        <IdeaFilters
+          filters={filters}
+          onFiltersChange={setFilters}
+        />
         <IdeaList
-          ideas={ideas}
+          ideas={sortedIdeas}
           loading={loading}
           hasMore={hasMore}
           onLoadMore={handleLoadMore}

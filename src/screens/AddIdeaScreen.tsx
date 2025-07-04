@@ -21,7 +21,7 @@ export const AddIdeaScreen: React.FC = () => {
 
   // PATTERN: Handle form submission
   const handleSubmit = async (data: IdeaFormData): Promise<boolean> => {
-    const success = await addIdea(data.title, data.description);
+    const success = await addIdea(data.title, data.description, data.rating);
     
     if (success) {
       setSuccessVisible(true);

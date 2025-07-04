@@ -3,6 +3,7 @@ export interface Idea {
   id: string;
   title: string;
   description?: string;
+  rating?: number;
   created_at: string;
   updated_at: string;
 }
@@ -38,7 +39,7 @@ export interface UseIdeasResult {
 }
 
 export interface UseAddIdeaResult {
-  addIdea: (title: string, description?: string) => Promise<boolean>;
+  addIdea: (title: string, description?: string, rating?: number) => Promise<boolean>;
   loading: boolean;
   error: string | null;
 }
@@ -47,6 +48,7 @@ export interface UseAddIdeaResult {
 export interface IdeaFormData {
   title: string;
   description?: string;
+  rating?: number;
 }
 
 // PATTERN: Local storage response types

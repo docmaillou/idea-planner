@@ -13,9 +13,9 @@ export const en = {
   // Add Idea Screen
   "addNewIdea": "Add New Idea",
   "ideaTitle": "Idea Title",
-  "ideaTitlePlaceholder": "Enter your idea title...",
+  "ideaTitlePlaceholder": "Ex: Recipe mobile app",
   "ideaDescription": "Description",
-  "ideaDescriptionPlaceholder": "Describe your idea (optional)...",
+  "ideaDescriptionPlaceholder": "Ex: An app to discover and share recipes with rating system and automatic shopping list",
   "saveIdea": "Save Idea",
   "cancel": "Cancel",
   
@@ -43,4 +43,17 @@ export const en = {
   
   // Floating Action Button
   "addNewIdeaFab": "Add new idea",
+  
+  // Rating
+  "rating": "Rating",
+  "optional": "optional",
+  "clearRating": "Clear rating",
+  
+  // Filters
+  "allRatings": "All ratings",
+  "newestFirst": "Newest first",
+  "oldestFirst": "Oldest first",
+  "highestRated": "Highest rated",
+  "lowestRated": "Lowest rated",
+  "clearFilters": "Clear",
 };

@@ -9,7 +9,7 @@ export function useAddIdea(): UseAddIdeaResult {
   const [error, setError] = useState<string | null>(null);
 
   // PATTERN: Add new idea with validation to local storage
-  const addIdea = useCallback(async (title: string, description?: string): Promise<boolean> => {
+  const addIdea = useCallback(async (title: string, description?: string, rating?: number): Promise<boolean> => {
     try {
       setLoading(true);
       setError(null);
@@ -24,6 +24,7 @@ export function useAddIdea(): UseAddIdeaResult {
       await localStorageService.addIdea({
         title: title.trim(),
         description: description?.trim() || null,
+        rating: rating,
       });
 
       // CRITICAL: Return success status
