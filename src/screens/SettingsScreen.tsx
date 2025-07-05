@@ -6,6 +6,7 @@ import { SafeAreaView } from "react-native-safe-area-context";
 import { useTranslation } from "react-i18next";
 import { useAppTheme } from "../hooks/useTheme";
 import { ThemeSelector } from "../components/ThemeSelector";
+import { AdBanner } from "../components/AdBanner";
 
 export const SettingsScreen: React.FC = () => {
   const theme = useTheme();
@@ -71,11 +72,13 @@ export const SettingsScreen: React.FC = () => {
 
           <List.Item
             title={t("version")}
-            description="1.0.2"
+            description="1.0.3"
             left={(props) => <List.Icon {...props} icon="information" />}
           />
         </List.Section>
       </View>
+      
+      <AdBanner size="smartBannerPortrait" style={styles.adBanner} />
     </SafeAreaView>
   );
 };
@@ -91,5 +94,8 @@ const styles = StyleSheet.create({
   },
   divider: {
     marginVertical: 12,
+  },
+  adBanner: {
+    marginTop: 'auto',
   },
 });

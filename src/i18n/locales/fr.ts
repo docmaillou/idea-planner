@@ -66,6 +66,10 @@ export const fr = {
   "clearFilters": "Effacer",
   "searchIdeas": "Rechercher des idées...",
   
+  // Ads
+  "loadingAd": "Chargement de la publicité...",
+  "adLoadError": "Impossible de charger la publicité",
+  
   // Idea Detail
   "createdOn": "Créée le",
   "modifiedOn": "Modifiée le",

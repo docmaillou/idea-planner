@@ -29,7 +29,12 @@
       "Bash(npx eas-cli build:*)",
       "Bash(npx eas-cli:*)",
       "Bash(eas build:*)",
-      "Bash(chmod:*)"
+      "Bash(chmod:*)",
+      "Bash(npm cache clean:*)",
+      "Bash(npx create-expo-app:*)",
+      "Bash(cp:*)",
+      "Bash(npm ls:*)",
+      "Bash(expo start:*)"
     ],
     "deny": []
   }

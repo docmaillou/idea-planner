@@ -76,6 +76,11 @@ export const IdeasScreen: React.FC = () => {
     }
   }, [error]);
 
+  // PATTERN: Handle add idea navigation
+  const handleAddIdeaPress = () => {
+    navigation.navigate('AddIdea');
+  };
+
   // PATTERN: Refresh ideas when screen comes into focus (after adding new idea)
   useFocusEffect(
     React.useCallback(() => {
@@ -103,7 +108,7 @@ export const IdeasScreen: React.FC = () => {
       <FAB
         icon="plus"
         style={styles.fab}
-        onPress={() => navigation.navigate('AddIdea')}
+        onPress={handleAddIdeaPress}
         label={t('add')}
         size="medium"
       />

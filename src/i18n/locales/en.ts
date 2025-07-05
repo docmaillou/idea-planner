@@ -65,6 +65,10 @@ export const en = {
   "clearFilters": "Clear",
   "searchIdeas": "Search ideas...",
   
+  // Ads
+  "loadingAd": "Loading ad...",
+  "adLoadError": "Failed to load ad",
+  
   // Idea Detail
   "createdOn": "Created on",
   "modifiedOn": "Modified on",

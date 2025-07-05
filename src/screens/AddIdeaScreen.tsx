@@ -8,6 +8,7 @@ import { NativeStackNavigationProp } from "@react-navigation/native-stack";
 import { useTranslation } from "react-i18next";
 import { AddIdeaForm } from "../components/AddIdeaForm";
 import { useAddIdea } from "../hooks/useAddIdea";
+import { useAds } from "../hooks/useAds";
 import { RootStackParamList, IdeaFormData } from "../types";
 
 type AddIdeaScreenNavigationProp = NativeStackNavigationProp<
@@ -18,6 +19,7 @@ type AddIdeaScreenNavigationProp = NativeStackNavigationProp<
 export const AddIdeaScreen: React.FC = () => {
   const navigation = useNavigation<AddIdeaScreenNavigationProp>();
   const { addIdea, loading, error } = useAddIdea();
+  const { showInterstitialAd } = useAds();
   const [successVisible, setSuccessVisible] = useState(false);
   const [errorVisible, setErrorVisible] = useState(false);
   const { t } = useTranslation();
@@ -28,6 +30,15 @@ export const AddIdeaScreen: React.FC = () => {
 
     if (success) {
       setSuccessVisible(true);
+      
+      // PATTERN: Show interstitial ad after successful save
+      try {
+        console.log('Showing interstitial ad after idea save...');
+        await showInterstitialAd();
+      } catch (error) {
+        console.error('Error showing ad after save:', error);
+      }
+      
       // PATTERN: Navigate back after successful save
       setTimeout(() => {
         setSuccessVisible(false);

@@ -2,7 +2,7 @@
   "expo": {
     "name": "MinDrop",
     "slug": "mindrop",
-    "version": "1.0.2",
+    "version": "1.0.3",
     "orientation": "portrait",
     "sdkVersion": "53.0.0",
     "icon": "./assets/icon.png",
@@ -32,7 +32,15 @@
     "web": {
       "favicon": "./assets/favicon.png"
     },
-    "plugins": [],
+    "plugins": [
+      [
+        "expo-ads-admob",
+        {
+          "androidAppId": "ca-app-pub-7628385859803442~7918714930",
+          "iosAppId": "ca-app-pub-7628385859803442~7918714930"
+        }
+      ]
+    ],
     "owner": "docmaillou",
     "runtimeVersion": {
       "policy": "appVersion"
