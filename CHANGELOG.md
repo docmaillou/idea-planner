@@ -1,5 +1,29 @@
 # Changelog
 
+## [1.0.3] - 2025-07-05
+
+### 📺 Système publicitaire AdMob
+- **Publicités interstitielles** : Affichage après la sauvegarde d'une idée
+- **Bannières automatiques** : Apparition après 30 secondes d'utilisation, visible 30 secondes
+- **Intégration AdMob** : Configuration avec de vrais IDs publicitaires
+- **Gestion multi-plateforme** : Publicités désactivées sur web, actives sur mobile
+
+### 🐛 Corrections de bugs
+- **Erreur web bundling** : Résolution du problème "react-native-google-mobile-ads" sur web
+- **Variables non définies** : Correction de l'erreur "adLoading doesn't exist"
+- **Compatibilité plateforme** : Gestion conditionelle des modules natifs
+
+### 🔧 Améliorations techniques
+- **Service publicitaire** : Nouvelle architecture pour la gestion des ads
+- **Hook useAds** : Interface simplifiée pour l'affichage des publicités
+- **Configuration centralisée** : Gestion des IDs de test et production dans adsConfig.ts
+- **Animations fluides** : Transitions d'apparition/disparition des bannières
+
+### 🎯 Stratégie publicitaire
+- **Récompense utilisateur** : Publicité après action productive (sauvegarde)
+- **UX non intrusive** : Bannières discrètes en bas d'écran
+- **Timing optimisé** : Délais adaptés pour éviter la frustration
+
 ## [1.0.2] - 2025-07-04
 
 ### ✨ Nouvelles fonctionnalités

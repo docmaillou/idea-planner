@@ -34,10 +34,10 @@
     },
     "plugins": [
       [
-        "expo-ads-admob",
+        "react-native-google-mobile-ads",
         {
-          "androidAppId": "ca-app-pub-7628385859803442~7918714930",
-          "iosAppId": "ca-app-pub-7628385859803442~7918714930"
+          "android_app_id": "ca-app-pub-7628385859803442~7918714930",
+          "ios_app_id": "ca-app-pub-7628385859803442~7918714930"
         }
       ]
     ],
